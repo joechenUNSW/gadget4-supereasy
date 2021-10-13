@@ -169,6 +169,9 @@ void sim::begrun1(const char *parameterFile)
       exit(0);
     }
 
+  /* This is initialised here because it will never be freed, so its best to have it in the deepest part of the stack */
+  Nulinear.tau_t_eV(0);
+
   if(All.OutputListOn)
     All.read_outputlist(All.OutputListFilename);
   else
